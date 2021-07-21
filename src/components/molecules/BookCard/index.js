@@ -37,7 +37,7 @@ function BookCard(props) {
         />
         <CardContent>
           <TypographyComponent gutterBottom variant="title" >
-           {book.title}
+           {book.name}
           </TypographyComponent>
           <TypographyComponent variant="subtitle">
          {book.author}

@@ -4,13 +4,15 @@ import Grid from "@material-ui/core/Grid";
 import LinK from "@material-ui/core";
 import BookCard from "../BookCard";
 import { Link } from "react-router-dom";
+import userListFetch from "../../../axios/UserListAxios";
+import axios from "axios";
 
 function BookCardGrid(props) {
   const [pageStatus, setPageStatus] = useState("CRR");
-  
+
   const myLibraryBookList = [
     {
-      title: "Book5",
+      name: "Book5",
       author: "Author5",
       image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
       category: "enterpreneureship",
@@ -20,7 +22,7 @@ function BookCardGrid(props) {
       bState: "CRR",
     },
     {
-      title: "Book6",
+      name: "Book6",
       author: "Author6",
       image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
       category: "enterpreneureship",
@@ -30,7 +32,7 @@ function BookCardGrid(props) {
       bState: "CRR",
     },
     {
-      title: "Book7",
+      name: "Book7",
       author: "Author7",
       image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
       category: "politics",
@@ -40,7 +42,7 @@ function BookCardGrid(props) {
       bState: "CRR",
     },
     {
-      title: "Book8",
+      name: "Book8",
       author: "Author8",
       image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
       category: "fiction",
@@ -50,11 +52,13 @@ function BookCardGrid(props) {
       bState: "CRR",
     },
   ];
+
+
   const [bookArray, setBookArray] = useState(myLibraryBookList);
+
   const changeBookStatus = (bk) => {
-    
     for (let i = 0; i < bookArray.length; i++) {
-      if (bookArray[i].title === bk.title) {
+      if (bookArray[i].name === bk.name) {
         if (bookArray[i].bState === "CRR") {
           bookArray[i].bState = "FIN";
         } else {
@@ -67,56 +71,48 @@ function BookCardGrid(props) {
     setBookArray([...bookArray]);
   };
 
-
-
-
-    return (
-      <>
-      
-      <Grid container justifyContent="space-around"> 
-        <Grid item >
-      <Link
-          href="#"
-          onClick={() => {
-            setPageStatus("CRR");
-          }}
-        >
-          Coninue Reading123
-        </Link>
-        </Grid>
-        <Grid item>   
-        <Link
-          href="#"
-          onClick={() => {
-            setPageStatus("FIN");
-          }}
-        >
-          finished
+  return (
+    <>
+      <Grid container justifyContent="space-around">
+        <Grid item>
+          <Link
+            href="#"
+            onClick={() => {
+              setPageStatus("CRR");
+            }}
+          >
+            Coninue Reading
           </Link>
-          </Grid>
+        </Grid>
+        <Grid item>
+          <Link
+            href="#"
+            onClick={() => {
+              setPageStatus("FIN");
+            }}
+          >
+            finished
+          </Link>
+        </Grid>
+      </Grid>
+      <br />
 
-          </Grid>
-          <br/>
-    
       <Grid container spacing={4}>
-      {bookArray
+        {bookArray
           .filter((book) => {
             console.log(book);
             return book.bState === `${pageStatus}`;
           })
           .map((book) => (
-           
-              <BookCard
-                book={book}
-                onchangestate={(bk) => {
-                  changeBookStatus(bk);
-                }}
-              />
-            
+            <BookCard
+              book={book}
+              onchangestate={(bk) => {
+                changeBookStatus(bk);
+              }}
+            />
           ))}
       </Grid>
-      </>
-    );
-  
+    </>
+  );
 }
 export default BookCardGrid;

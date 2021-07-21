@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router";
 import Grid from "@material-ui/core/Grid";
 import BookCard from "../BookCard";
+import axios from "axios";
 
 function Explorer(props) {
   const bookList = [
@@ -80,17 +81,29 @@ function Explorer(props) {
       bookReadCount: "15 k read",
     },
   ];
- 
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/book")
+      .then(function (response) {
+        console.log("response data here");
+        console.log(response.data);        
+        setBookArray(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },[]);
+  const [bookArray, setBookArray] = useState([]);
   
  
     return (
       <Grid container spacing={4}>
-        {bookList
+        {bookArray
           .filter((book) => {
             return book.category === 'enterpreneureship';
           })
           .map((book) => (
-            <BookCard key={book.title} book={book} />
+            <BookCard key={book.name} book={book} />
           ))}
       </Grid>
     );
