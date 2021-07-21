@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import TypographyComponent from '../../atoms/Typography';
+import ButtonComponent from '../../atoms/Button';
 
 const useStyles = makeStyles({
   root: {
@@ -19,6 +20,9 @@ const useStyles = makeStyles({
 function BookCard(props) {
   const classes = useStyles();
   const { book } = props;
+  const changeStatusOfBook = (funct, book) => {
+    funct(book);
+  };
 
   return (
     <Grid item item xs={12} md={4}>
@@ -47,9 +51,13 @@ function BookCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button  color="primary" variant="contained">
-          Finished Reading
-        </Button>
+      <ButtonComponent
+          onClick={() => changeStatusOfBook(props.onchangestate, props.book)}
+        >
+          {props.book.bState === "CRR"
+            ? "Finisihed Reading"
+            : "Currently Reading "}
+        </ButtonComponent>
         
       </CardActions>
     </Card>

@@ -1,48 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router";
 import Grid from "@material-ui/core/Grid";
+import LinK from "@material-ui/core";
 import BookCard from "../BookCard";
+import { Link } from "react-router-dom";
 
 function BookCardGrid(props) {
-  const allBooks = [
-    {
-      title: "Book1",
-      author: "Author1",
-      image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
-      category: "enterpreneureship",
-      imageTitle: "My BOOK",
-      bookReadTime: "13 min read",
-      bookReadCount: "15 k read",
-    },
-    {
-      title: "Book2",
-      author: "Author2",
-      image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
-      category: "enterpreneureship",
-      imageTitle: "My BOOK",
-      bookReadTime: "13 min read",
-      bookReadCount: "15 k read",
-    },
-    {
-      title: "Book3",
-      author: "Author3",
-      image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
-      category: "politics",
-      imageTitle: "My BOOK",
-      bookReadTime: "13 min read",
-      bookReadCount: "15 k read",
-    },
-    {
-      title: "Book4",
-      author: "Author4",
-      image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
-      category: "fiction",
-      imageTitle: "My BOOK",
-      bookReadTime: "13 min read",
-      bookReadCount: "15 k read",
-    },
-  ];
-  const myLibrary = [
+  const [pageStatus, setPageStatus] = useState("CRR");
+  
+  const myLibraryBookList = [
     {
       title: "Book5",
       author: "Author5",
@@ -51,6 +17,7 @@ function BookCardGrid(props) {
       imageTitle: "My BOOK",
       bookReadTime: "13 min read",
       bookReadCount: "15 k read",
+      bState: "CRR",
     },
     {
       title: "Book6",
@@ -60,6 +27,7 @@ function BookCardGrid(props) {
       imageTitle: "My BOOK",
       bookReadTime: "13 min read",
       bookReadCount: "15 k read",
+      bState: "CRR",
     },
     {
       title: "Book7",
@@ -69,6 +37,7 @@ function BookCardGrid(props) {
       imageTitle: "My BOOK",
       bookReadTime: "13 min read",
       bookReadCount: "15 k read",
+      bState: "CRR",
     },
     {
       title: "Book8",
@@ -78,41 +47,76 @@ function BookCardGrid(props) {
       imageTitle: "My BOOK",
       bookReadTime: "13 min read",
       bookReadCount: "15 k read",
+      bState: "CRR",
     },
   ];
-  const [bookList, setBookList] = useState(myLibrary);
-  useEffect(() => {
-    if (`${props.match.params.category}` === "all") {
-      console.log("gk1");
-      setBookList(allBooks);
-    } else {
-      console.log("gk2");
-      setBookList(myLibrary);
+  const [bookArray, setBookArray] = useState(myLibraryBookList);
+  const changeBookStatus = (bk) => {
+    
+    for (let i = 0; i < bookArray.length; i++) {
+      if (bookArray[i].title === bk.title) {
+        if (bookArray[i].bState === "CRR") {
+          bookArray[i].bState = "FIN";
+        } else {
+          bookArray[i].bState = "CRR";
+        }
+        break;
+      }
     }
-    // alert("use effect called"+`${props.match.params.category}`);
-  }, []);
 
- 
-  if (props.match.params.category === "all") {
+    setBookArray([...bookArray]);
+  };
+
+
+
+
     return (
+      <>
+      
+      <Grid container justifyContent="space-around"> 
+        <Grid item >
+      <Link
+          href="#"
+          onClick={() => {
+            setPageStatus("CRR");
+          }}
+        >
+          Coninue Reading123
+        </Link>
+        </Grid>
+        <Grid item>   
+        <Link
+          href="#"
+          onClick={() => {
+            setPageStatus("FIN");
+          }}
+        >
+          finished
+          </Link>
+          </Grid>
+
+          </Grid>
+          <br/>
+    
       <Grid container spacing={4}>
-        {bookList.map((book) => (
-          <BookCard key={book.title} book={book} />
-        ))}
-      </Grid>
-    );
-  } else {
-    return (
-      <Grid container spacing={4}>
-        {bookList
+      {bookArray
           .filter((book) => {
-            return book.category === `${props.match.params.category}`;
+            console.log(book);
+            return book.bState === `${pageStatus}`;
           })
           .map((book) => (
-            <BookCard key={book.title} book={book} />
+           
+              <BookCard
+                book={book}
+                onchangestate={(bk) => {
+                  changeBookStatus(bk);
+                }}
+              />
+            
           ))}
       </Grid>
+      </>
     );
-  }
+  
 }
-export default withRouter(BookCardGrid);
+export default BookCardGrid;

@@ -9,6 +9,8 @@ import TypographyComponent from "../components/atoms/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
 import BookCardGrid from "../components/molecules/BookCardGrid";
 import { BrowserRouter as Router,Route} from "react-router-dom";
+import { Explore } from "@material-ui/icons";
+import Explorer from "../components/molecules/Explorer";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -71,16 +73,19 @@ const classes = useStyles();
     <React.Fragment>
       <Container maxWidth="lg">
       <Header/>
-        <main>
+        
         <TypographyComponent variant="header" gutterBottom align="left">My Library</TypographyComponent>
          <PaperComponent  paperProps={paperProps}/>
          <br/>
        
          
-           <Route path="/book/:category">   
+           <Route path="/book/enterpreneureship">   
+              <Explorer/>
+          </Route>   
+          <Route path="/book/myLibrary">   
               <BookCardGrid/>
           </Route>   
-        </main>
+        
       </Container>
       <Footer />
     </React.Fragment>

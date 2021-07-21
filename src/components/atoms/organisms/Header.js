@@ -79,7 +79,7 @@ function Header() {
             Explore
           </Link>
           <Link
-             href="/book/all">
+             href="/book/myLibrary">
             MyLibrary
           </Link>
           <Link

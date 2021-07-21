@@ -7,7 +7,7 @@ import { green } from '@material-ui/core/colors';
 function ButtonComponent(props){
       
     return(
-        <Button variant="contained" color="primary">{props.children}</Button>
+        <Button variant="contained"   onClick={props.onClick} color="primary">{props.children}</Button>
 
     );
 }
