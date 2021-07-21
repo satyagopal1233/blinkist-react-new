@@ -75,24 +75,12 @@ function Header() {
             Blinkist
           </Link>
           <Link
-            color="inherit"
-            noWrap
-            key="Explore"
-            variant="body2"
-            href="#"
-            className={classes.toolbarLink}
-          >
+             href="/book/enterpreneureship">
             Explore
           </Link>
           <Link
-            color="inherit"
-            noWrap
-            key="My Library"
-            variant="body2"
-            href="#"
-            className={classes.toolbarLink}
-          >
-            My Library
+             href="/book/all">
+            MyLibrary
           </Link>
           <Link
             color="inherit"

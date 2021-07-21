@@ -1,4 +1,4 @@
-import { Container, Typography } from "@material-ui/core";
+import { Container, Typography ,  makeStyles,Link} from "@material-ui/core";
 import React from "react";
 import Header from "../components/atoms/organisms/Header";
 import BookCard from "../components/molecules/BookCard";
@@ -6,6 +6,25 @@ import Grid from "@material-ui/core/Grid";
 import Footer from "../components/atoms/organisms/Footer";
 import PaperComponent from "../components/atoms/PaperComponent";
 import TypographyComponent from "../components/atoms/Typography";
+import Toolbar from "@material-ui/core/Toolbar";
+import BookCardGrid from "../components/molecules/BookCardGrid";
+import { BrowserRouter as Router,Route} from "react-router-dom";
+
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: "white",
+    color: "black",
+    boxShadow: "0px 0px 0px 0px",
+  },
+  toolbarSecondary: {
+    justifyContent: 'space-between',
+    overflowX: 'auto',
+  },
+  toolbarLink: {
+    padding: theme.spacing(1),
+    flexShrink: 0,
+  },
+}));
 function MyLibrary() {
   const bookList = [
     {
@@ -45,23 +64,27 @@ function MyLibrary() {
     title:'Find Audiobooks on the blinkist App',
     description:'with premium you will get the whole Blinkist library for free,plus full-length notification audiobooks at a special member price'
 };
+
+const classes = useStyles();
   return (
+    <Router>
     <React.Fragment>
       <Container maxWidth="lg">
-        <Header />
+      <Header/>
         <main>
         <TypographyComponent variant="header" gutterBottom align="left">My Library</TypographyComponent>
          <PaperComponent  paperProps={paperProps}/>
          <br/>
-          <Grid container spacing={4}>
-            {bookList.map((book) => (
-              <BookCard key={book.title} book={book} />
-            ))}
-          </Grid>
+       
+         
+           <Route path="/book/:category">   
+              <BookCardGrid/>
+          </Route>   
         </main>
       </Container>
       <Footer />
     </React.Fragment>
+    </Router>
   );
 }
 export default MyLibrary;
