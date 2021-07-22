@@ -75,10 +75,12 @@ function Header() {
             Blinkist
           </Link>
           <Link
+            to=""
              href="/book/enterpreneureship">
-            Explore
+            Explore123
           </Link>
           <Link
+            to=""
              href="/book/myLibrary">
             MyLibrary
           </Link>

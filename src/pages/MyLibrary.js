@@ -62,10 +62,7 @@ function MyLibrary() {
       bookReadCount: "15 k read",
     },
   ];
-  const paperProps = {
-    title:'Find Audiobooks on the blinkist App',
-    description:'with premium you will get the whole Blinkist library for free,plus full-length notification audiobooks at a special member price'
-};
+  
 
 const classes = useStyles();
   return (
@@ -74,8 +71,7 @@ const classes = useStyles();
       <Container maxWidth="lg">
       <Header/>
         
-        <TypographyComponent variant="header" gutterBottom align="left">My Library</TypographyComponent>
-         <PaperComponent  paperProps={paperProps}/>
+       
          <br/>
        
          

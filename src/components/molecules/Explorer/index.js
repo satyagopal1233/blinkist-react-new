@@ -3,6 +3,8 @@ import { withRouter } from "react-router";
 import Grid from "@material-ui/core/Grid";
 import BookCard from "../BookCard";
 import axios from "axios";
+import PaperComponent from "../../atoms/PaperComponent";
+import TypographyComponent from "../../atoms/Typography";
 
 function Explorer(props) {
   const bookList = [
@@ -83,7 +85,7 @@ function Explorer(props) {
   ];
   useEffect(() => {
     axios
-      .get("http://localhost:8080/book")
+      .get("http://localhost:8080/book/category/enterpreneureship")
       .then(function (response) {
         console.log("response data here");
         console.log(response.data);        
@@ -94,9 +96,19 @@ function Explorer(props) {
       });
   },[]);
   const [bookArray, setBookArray] = useState([]);
+
+  const paperProps = {
+    title:'Explore books on Entrepreneurship',
+    description:'Everything you need to know about thriving on a shortering budget, making your first million,and hiring right from the start'
+  };
   
  
     return (
+      <>
+      
+      <PaperComponent  paperProps={paperProps}/>
+      <TypographyComponent variant="header" gutterBottom align="left">Trending Blinks</TypographyComponent>
+    
       <Grid container spacing={4}>
         {bookArray
           .filter((book) => {
@@ -106,6 +118,8 @@ function Explorer(props) {
             <BookCard key={book.name} book={book} />
           ))}
       </Grid>
+      </>
     );
+        
           }
 export default Explorer;

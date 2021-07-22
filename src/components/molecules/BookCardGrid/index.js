@@ -6,6 +6,9 @@ import BookCard from "../BookCard";
 import { Link } from "react-router-dom";
 import userListFetch from "../../../axios/UserListAxios";
 import axios from "axios";
+import TypographyComponent from "../../atoms/Typography";
+import PaperComponent from "../../atoms/PaperComponent";
+
 
 function BookCardGrid(props) {
   const [pageStatus, setPageStatus] = useState("CRR");
@@ -71,11 +74,22 @@ function BookCardGrid(props) {
     setBookArray([...bookArray]);
   };
 
+  const paperProps = {
+    title:'Find Audiobooks on the blinkist App',
+    description:'with premium you will get the whole Blinkist library for free,plus full-length notification audiobooks at a special member price'
+  };
+
   return (
     <>
+     
+       <TypographyComponent variant="header" gutterBottom align="left">My Library</TypographyComponent>
+         <PaperComponent  paperProps={paperProps}/>
+         <br/>
+       
       <Grid container justifyContent="space-around">
         <Grid item>
           <Link
+            to="#"
             href="#"
             onClick={() => {
               setPageStatus("CRR");
@@ -86,6 +100,7 @@ function BookCardGrid(props) {
         </Grid>
         <Grid item>
           <Link
+            to="#"
             href="#"
             onClick={() => {
               setPageStatus("FIN");
@@ -104,7 +119,7 @@ function BookCardGrid(props) {
             return book.bState === `${pageStatus}`;
           })
           .map((book) => (
-            <BookCard
+            <BookCard key={book.name}
               book={book}
               onchangestate={(bk) => {
                 changeBookStatus(bk);

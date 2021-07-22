@@ -30,10 +30,10 @@ function BookCard(props) {
       <CardActionArea>
         <CardMedia
           component="img"
-          alt={book.title}
+          alt={book.name}
           height="140"
           image={book.image}
-          title={book.title}
+          title={book.name}
         />
         <CardContent>
           <TypographyComponent gutterBottom variant="title" >
