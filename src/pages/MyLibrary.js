@@ -11,12 +11,15 @@ import BookCardGrid from "../components/molecules/BookCardGrid";
 import { BrowserRouter as Router,Route} from "react-router-dom";
 import { Explore } from "@material-ui/icons";
 import Explorer from "../components/molecules/Explorer";
+import "@fontsource/raleway";
 
 const useStyles = makeStyles((theme) => ({
+
   appBar: {
     backgroundColor: "white",
     color: "black",
     boxShadow: "0px 0px 0px 0px",
+    fontFamily:"raleway"
   },
   toolbarSecondary: {
     justifyContent: 'space-between',

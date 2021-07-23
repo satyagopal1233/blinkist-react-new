@@ -5,6 +5,7 @@ import BookCard from "../BookCard";
 import axios from "axios";
 import PaperComponent from "../../atoms/PaperComponent";
 import TypographyComponent from "../../atoms/Typography";
+import SearchBookAutoComplete from "../../atoms/organisms/SearchBookAutoComplete";
 
 function Explorer(props) {
   const bookList = [
@@ -104,10 +105,15 @@ function Explorer(props) {
   
  
     return (
+
       <>
       
+     
+      
+
       <PaperComponent  paperProps={paperProps}/>
       <TypographyComponent variant="header" gutterBottom align="left">Trending Blinks</TypographyComponent>
+      <SearchBookAutoComplete bookArray={bookArray}/>
     
       <Grid container spacing={4}>
         {bookArray

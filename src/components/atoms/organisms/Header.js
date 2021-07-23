@@ -5,32 +5,53 @@ import {
   makeStyles,
   Typography,
   Button,
-  Link
+  Link,
+  Paper,
+  Avatar
 } from "@material-ui/core";
-import React from "react";
+
+import React, { useState } from 'react';
 import SearchIcon from "@material-ui/icons/Search";
 import Toolbar from "@material-ui/core/Toolbar";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import ExploreDropdown from "../../molecules/ExplorerDropdown";
+import PaperComponent from "../PaperComponent";
+import "@fontsource/raleway";
+import { fontWeight } from "@material-ui/system";
+
+
+
+
 const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: "white",
     color: "black",
     boxShadow: "0px 0px 0px 0px",
+    
+    
   },
   toolbarSecondary: {
     justifyContent: 'space-between',
     overflowX: 'auto',
+    
+    
   },
   toolbarLink: {
     padding: theme.spacing(1),
-    flexShrink: 0,
+    flexShrink: 0
+   
   },
 }));
 
 function Header() {
   const classes = useStyles();
+  const [show, setShow] = useState(false);
+  const paperProps = {
+    title:'Explore books on Entrepreneurship',
+    description:'Everything you need to know about thriving on a shortering budget, making your first million,and hiring right from the start'
+  };
   return (
     <>
       {/*  <AppBar position="sticky"  className={classes.appBar}>
@@ -63,22 +84,28 @@ function Header() {
         variant="dense"
         className={classes.toolbarSecondary}
       >
-       
-          <Link
+           
+           <Avatar  src="/blinkist_icon.png"/>
+            <Link
             color="inherit"
             noWrap
             key="Blinkist"
-            variant="body2"
+            variant="h6"
+            fontWeight="bold"
             href="#"
             className={classes.toolbarLink}
-          >
+            >      
+            
             Blinkist
           </Link>
-          <Link
+            <Link
+            onClick={() => setShow(prev => !prev)}
             to=""
-             href="/book/enterpreneureship">
-            Explore123
+             href="#">
+            Explore
           </Link>
+        
+
           <Link
             to=""
              href="/book/myLibrary">
@@ -106,6 +133,8 @@ function Header() {
           </Link>
        
       </Toolbar>
+      {show &&  
+        <ExploreDropdown/>  }
     </>
   );
 }
