@@ -31,7 +31,6 @@ function BookCard(props) {
         <CardMedia
           component="img"
           alt={book.name}
-          height="140"
           image={book.image}
           title={book.name}
         />

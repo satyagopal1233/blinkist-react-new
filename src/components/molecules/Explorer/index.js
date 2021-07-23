@@ -112,10 +112,12 @@ function Explorer(props) {
       
 
       <PaperComponent  paperProps={paperProps}/>
-      <TypographyComponent variant="header" gutterBottom align="left">Trending Blinks</TypographyComponent>
+      <Grid container justify="flex-start">
+      
+      </Grid>
       <SearchBookAutoComplete bookArray={bookArray}/>
     
-      <Grid container spacing={4}>
+      <Grid container spacing={4} >
         {bookArray
           .filter((book) => {
             return book.category === 'enterpreneureship';

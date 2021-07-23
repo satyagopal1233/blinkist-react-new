@@ -10,6 +10,8 @@ import TypographyComponent from "../../atoms/Typography";
 import PaperComponent from "../../atoms/PaperComponent";
 
 
+
+
 function BookCardGrid(props) {
   const [pageStatus, setPageStatus] = useState("CRR");
 
@@ -81,13 +83,19 @@ function BookCardGrid(props) {
 
   return (
     <>
-     
+        <Grid container justify="flex-start">
+        
        <TypographyComponent variant="header" gutterBottom align="left">My Library</TypographyComponent>
+       </Grid>
+       <Grid xs={12}>  
          <PaperComponent  paperProps={paperProps}/>
+         </Grid>
+        
+        
          <br/>
        
-      <Grid container justifyContent="space-around">
-        <Grid item>
+      <Grid container>
+        <Grid item xs={12} md={4}>
           <Link
             to="#"
             href="#"
@@ -95,10 +103,10 @@ function BookCardGrid(props) {
               setPageStatus("CRR");
             }}
           >
-            Coninue Reading
+            Currently Reading
           </Link>
         </Grid>
-        <Grid item>
+        <Grid item xs={12} md={4}>
           <Link
             to="#"
             href="#"
@@ -106,7 +114,7 @@ function BookCardGrid(props) {
               setPageStatus("FIN");
             }}
           >
-            finished
+            Finished
           </Link>
         </Grid>
       </Grid>

@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     
   },
   toolbarSecondary: {
-    justifyContent: 'space-between',
+    
     overflowX: 'auto',
     
     
@@ -54,33 +54,8 @@ function Header() {
   };
   return (
     <>
-      {/*  <AppBar position="sticky"  className={classes.appBar}>
-        <Tabs aria-label="simple tabs example">
-          <Tab  label="Blinkist" >
-               
-
-          </Tab>
-          <Tab icon={<SearchIcon />} />
-          <Tab label="Explore" />
-          <Tab label="My Library" />
-          <Tab label="Highlights" />
-          <Tab label="Account"  style={{flexGrow:1}}/>
-        </Tabs>
-      </AppBar> 
-      <AppBar position="sticky" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6">Blinkist</Typography>
-          <IconButton>
-            <SearchIcon />
-          </IconButton>
-          <Button>Explore</Button>
-          <Button>My Library</Button>
-          <Button>Highlights</Button>
-          <Button style={{ flexGrow: 1 }}>Account</Button>
-        </Toolbar>
-      </AppBar>*/}
+       
      
-      
       <Toolbar
         component="nav"
         variant="dense"
@@ -88,28 +63,21 @@ function Header() {
       >
            
            <Avatar  src="/blinkist_icon.png"/>
-            <Link
-            color="inherit"
-            noWrap
-            key="Blinkist"
-            variant="h6"
-            fontWeight="bold"
-            href="#"
-            className={classes.toolbarLink}
-            >      
+           <Typography style={{ marginRight: 16 }}><b>           
             
-            Blinkist
-          </Link>
+            Blinkist</b>
+          </Typography>
+          
             <Link
             onClick={() => setShow(prev => !prev)}
             to=""
-             href="#">
+             href="#" style={{ marginRight: 16 }}>
             Explore
           </Link>
         
 
           <Link
-            to={{pathname: '/book/myLibrary'}}>
+            to={{pathname: '/book/myLibrary'}} style={{ marginRight: 16 }}>
             MyLibrary
           </Link>
           <Link
@@ -119,6 +87,7 @@ function Header() {
             variant="body2"
             href="#"
             className={classes.toolbarLink}
+            style={{ marginRight: 16 }}
           >
             Highlights
           </Link>
@@ -129,6 +98,7 @@ function Header() {
             variant="body2"
             href="#"
             className={classes.toolbarLink}
+            style={{ marginRight: 16 }}
           >
             Account
           </Link>

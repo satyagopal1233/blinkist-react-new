@@ -5,6 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
+import TypographyComponent from "../../Typography";
 function SearchBookAutoComplete(props) {
   const books = props.bookArray;
 
@@ -20,15 +21,23 @@ function SearchBookAutoComplete(props) {
   const displayBookCard = (book)=>{
     console.log(book.name);
   };
+ 
+  
   return (
     <>
-      <TextField
+    <Grid container justify="flex-start">
+      <TextField 
         id="outlined-basic"
         label="Search Book"
-        variant="outlined"
+        variant="standard"
+        size="medium"
         onChange={(e) => searchBooks(e.target.value)}
       />
+      </Grid>
       <br />
+      <Grid container justify="flex-start">
+      <TypographyComponent variant="header" gutterBottom align="left">Trending Blinks</TypographyComponent>
+      </Grid>
       <ul>
         {bookMatch &&
           bookMatch.map((book) => <li key={book.name}><Link to={{pathname: '/book/displayBookCard',state:book}}>{book.name}</Link></li>)}
