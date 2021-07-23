@@ -3,6 +3,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
+import { Link } from "react-router-dom";
+import { Button } from "@material-ui/core";
 function SearchBookAutoComplete(props) {
   const books = props.bookArray;
 
@@ -15,6 +17,9 @@ function SearchBookAutoComplete(props) {
 
     setBookMatch(matches);
   };
+  const displayBookCard = (book)=>{
+    console.log(book.name);
+  };
   return (
     <>
       <TextField
@@ -26,7 +31,7 @@ function SearchBookAutoComplete(props) {
       <br />
       <ul>
         {bookMatch &&
-          bookMatch.map((book) => <li key={book.name}>{book.name}</li>)}
+          bookMatch.map((book) => <li key={book.name}><Link to={{pathname: '/book/displayBookCard',state:book}}>{book.name}</Link></li>)}
       </ul>
     </>
   );

@@ -12,6 +12,7 @@ import { BrowserRouter as Router,Route} from "react-router-dom";
 import { Explore } from "@material-ui/icons";
 import Explorer from "../components/molecules/Explorer";
 import "@fontsource/raleway";
+import DisplayBookCard from "../components/molecules/DisplayBookCard";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -78,12 +79,15 @@ const classes = useStyles();
          <br/>
        
          
-           <Route path="/book/enterpreneureship">   
-              <Explorer/>
+           <Route path="/book/enterpreneureship" component={Explorer}>   
+             
           </Route>   
           <Route path="/book/myLibrary">   
               <BookCardGrid/>
-          </Route>   
+          </Route>  
+          <Route path="/book/displayBookCard" component={DisplayBookCard}>
+                
+          </Route> 
         
       </Container>
       <Footer />

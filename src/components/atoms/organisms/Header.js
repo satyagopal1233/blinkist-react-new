@@ -5,11 +5,11 @@ import {
   makeStyles,
   Typography,
   Button,
-  Link,
   Paper,
-  Avatar
+  Avatar,
+  Container
 } from "@material-ui/core";
-
+import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 import SearchIcon from "@material-ui/icons/Search";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -79,6 +79,8 @@ function Header() {
           <Button style={{ flexGrow: 1 }}>Account</Button>
         </Toolbar>
       </AppBar>*/}
+     
+      
       <Toolbar
         component="nav"
         variant="dense"
@@ -107,8 +109,7 @@ function Header() {
         
 
           <Link
-            to=""
-             href="/book/myLibrary">
+            to={{pathname: '/book/myLibrary'}}>
             MyLibrary
           </Link>
           <Link
@@ -133,6 +134,7 @@ function Header() {
           </Link>
        
       </Toolbar>
+     
       {show &&  
         <ExploreDropdown/>  }
     </>
