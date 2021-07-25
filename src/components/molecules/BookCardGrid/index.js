@@ -13,7 +13,7 @@ import PaperComponent from "../../atoms/PaperComponent";
 
 
 function BookCardGrid(props) {
-  const [pageStatus, setPageStatus] = useState("CRR");
+  const [pageStatus, setPageStatus] = useState("FIN");
 
   const myLibraryBookList = [
     {
@@ -59,15 +59,15 @@ function BookCardGrid(props) {
   ];
 
 
-  const [bookArray, setBookArray] = useState(myLibraryBookList);
+  const [bookArray, setBookArray] = useState([]);
 
   const changeBookStatus = (bk) => {
     for (let i = 0; i < bookArray.length; i++) {
-      if (bookArray[i].name === bk.name) {
-        if (bookArray[i].bState === "CRR") {
-          bookArray[i].bState = "FIN";
+      if (bookArray[i].book.name === bk.name) {
+        if (bookArray[i].status === "CRR") {
+          bookArray[i].status = "FIN";
         } else {
-          bookArray[i].bState = "CRR";
+          bookArray[i].status = "CRR";
         }
         break;
       }
@@ -75,6 +75,20 @@ function BookCardGrid(props) {
 
     setBookArray([...bookArray]);
   };
+
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/userLibrary/5")
+      .then(function (response) {
+        console.log("response data here");
+        console.log(response.data);        
+        setBookArray(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },[]);
 
   const paperProps = {
     title:'Find Audiobooks on the blinkist App',
@@ -122,13 +136,13 @@ function BookCardGrid(props) {
 
       <Grid container spacing={4}>
         {bookArray
-          .filter((book) => {
-            console.log(book);
-            return book.bState === `${pageStatus}`;
+          .filter((userBook) => {
+            console.log("gk1"+userBook.book);
+            return userBook.status === `${pageStatus}`;
           })
-          .map((book) => (
-            <BookCard key={book.name}
-              book={book}
+          .map((userBook) => (
+            <BookCard key={userBook.book.name}
+              book={userBook.book}
               onchangestate={(bk) => {
                 changeBookStatus(bk);
               }}

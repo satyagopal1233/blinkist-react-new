@@ -112,9 +112,7 @@ function Explorer(props) {
       
 
       <PaperComponent  paperProps={paperProps}/>
-      <Grid container justify="flex-start">
-      
-      </Grid>
+     
       <SearchBookAutoComplete bookArray={bookArray}/>
     
       <Grid container spacing={4} >

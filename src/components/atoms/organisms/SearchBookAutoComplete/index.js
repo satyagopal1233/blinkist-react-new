@@ -35,13 +35,14 @@ function SearchBookAutoComplete(props) {
       />
       </Grid>
       <br />
-      <Grid container justify="flex-start">
-      <TypographyComponent variant="header" gutterBottom align="left">Trending Blinks</TypographyComponent>
-      </Grid>
+     
       <ul>
         {bookMatch &&
           bookMatch.map((book) => <li key={book.name}><Link to={{pathname: '/book/displayBookCard',state:book}}>{book.name}</Link></li>)}
       </ul>
+      <Grid container justify="flex-start">
+      <TypographyComponent variant="header" gutterBottom align="left">Trending Blinks</TypographyComponent>
+      </Grid>
     </>
   );
 }
