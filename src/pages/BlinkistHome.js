@@ -13,6 +13,7 @@ import { Explore } from "@material-ui/icons";
 import Explorer from "../components/molecules/Explorer";
 import "@fontsource/raleway";
 import DisplayBookCard from "../components/molecules/DisplayBookCard";
+import AddBook from "../components/atoms/organisms/AddBook";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -55,6 +56,9 @@ const classes = useStyles();
           <Route path="/book/displayBookCard" component={DisplayBookCard}>
                 
           </Route> 
+          <Route path="/addBook" component={AddBook}>
+                
+                </Route> 
         
       </Container>
       <Footer />

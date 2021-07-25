@@ -42,8 +42,10 @@ function Explorer(props) {
       <SearchBookAutoComplete bookArray={bookArray}/>
     
       <Grid container spacing={4} >
+        
         {bookArray
           .filter((book) => {
+            console.log(book);
             return book.category === 'enterpreneureship';
           })
           .map((book) => (

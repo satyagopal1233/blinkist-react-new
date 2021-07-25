@@ -25,7 +25,7 @@ function SearchBookAutoComplete(props) {
   
   return (
     <>
-    <Grid container justify="flex-start">
+    <Grid container justifyContent="flex-start">
       <TextField 
         id="outlined-basic"
         label="Search Book"
@@ -40,7 +40,7 @@ function SearchBookAutoComplete(props) {
         {bookMatch &&
           bookMatch.map((book) => <li key={book.name}><Link to={{pathname: '/book/displayBookCard',state:book}}>{book.name}</Link></li>)}
       </ul>
-      <Grid container justify="flex-start">
+      <Grid container justifyContent="flex-start">
       <TypographyComponent variant="header" gutterBottom align="left">Trending Blinks</TypographyComponent>
       </Grid>
     </>

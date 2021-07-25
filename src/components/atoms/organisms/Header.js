@@ -82,7 +82,6 @@ function Header() {
           </Link>
           <Link
             color="inherit"
-            noWrap
             key="Highlights"
             variant="body2"
             href="#"
@@ -92,8 +91,12 @@ function Header() {
             Highlights
           </Link>
           <Link
+            to={{pathname: '/addBook'}} style={{ marginRight: 16 }}>
+            Add Book
+          </Link>
+
+          <Link
             color="inherit"
-            noWrap
             key="Account"
             variant="body2"
             href="#"
