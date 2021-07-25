@@ -12,14 +12,16 @@ import ButtonComponent from '../../atoms/Button';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    maxWidth: "90%",
+    height: "100%",
   },
+
   
 });
 
 function BookCard(props) {
   const classes = useStyles();
-  const { book } = props;
+  const { book,buttonText } = props;
   const changeStatusOfBook = (funct, book) => {
     funct(book);
   };
@@ -53,9 +55,7 @@ function BookCard(props) {
       <ButtonComponent
           onClick={() => changeStatusOfBook(props.onchangestate, props.book)}
         >
-          {props.book.bState === "CRR"
-            ? "Finisihed Reading"
-            : "Currently Reading "}
+          {buttonText}
         </ButtonComponent>
         
       </CardActions>

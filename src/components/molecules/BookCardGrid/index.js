@@ -142,6 +142,7 @@ function BookCardGrid(props) {
           })
           .map((userBook) => (
             <BookCard key={userBook.book.name}
+              buttonText = {userBook.status==='CRR'?'Finished Reading':'Currently Reading'}
               book={userBook.book}
               onchangestate={(bk) => {
                 changeBookStatus(bk);

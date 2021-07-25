@@ -121,7 +121,9 @@ function Explorer(props) {
             return book.category === 'enterpreneureship';
           })
           .map((book) => (
-            <BookCard key={book.name} book={book} />
+            <BookCard key={book.name} book={book} 
+            buttonText = 'Add to Library'
+            />
           ))}
       </Grid>
       </>

@@ -18,9 +18,10 @@ BookCardSample.args = {
   book: {
     title: "Book1",
     author: "Author1",
-    image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
+    image: "https://images.blinkist.io/images/books/608bc8bb6cee070008a8f57e/1_1/470.jpg",
     imageTitle: "My BOOK",
     bookReadTime: "13 min read",
     bookReadCount: "15 k read",
   },
+  buttonText:"Currently Reading"
 };
