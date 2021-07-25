@@ -7,7 +7,7 @@ import Footer from "../components/atoms/organisms/Footer";
 import PaperComponent from "../components/atoms/PaperComponent";
 import TypographyComponent from "../components/atoms/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
-import BookCardGrid from "../components/molecules/BookCardGrid";
+import MyLibrary from "../components/molecules/MyLibrary";
 import { BrowserRouter as Router,Route} from "react-router-dom";
 import { Explore } from "@material-ui/icons";
 import Explorer from "../components/molecules/Explorer";
@@ -31,41 +31,8 @@ const useStyles = makeStyles((theme) => ({
     flexShrink: 0,
   },
 }));
-function MyLibrary() {
-  const bookList = [
-    {
-      title: "Book1",
-      author: "Author1",
-      image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
-      imageTitle: "My BOOK",
-      bookReadTime: "13 min read",
-      bookReadCount: "15 k read",
-    },
-    {
-      title: "Book2",
-      author: "Author2",
-      image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
-      imageTitle: "My BOOK",
-      bookReadTime: "13 min read",
-      bookReadCount: "15 k read",
-    },
-    {
-      title: "Book3",
-      author: "Author3",
-      image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
-      imageTitle: "My BOOK",
-      bookReadTime: "13 min read",
-      bookReadCount: "15 k read",
-    },
-    {
-      title: "Book4",
-      author: "Author4",
-      image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
-      imageTitle: "My BOOK",
-      bookReadTime: "13 min read",
-      bookReadCount: "15 k read",
-    },
-  ];
+function BlinkistHome() {
+ 
   
 
 const classes = useStyles();
@@ -82,8 +49,8 @@ const classes = useStyles();
            <Route path="/book/enterpreneureship" component={Explorer}>   
              
           </Route>   
-          <Route path="/book/myLibrary">   
-              <BookCardGrid/>
+          <Route path="/book/myLibrary" component={MyLibrary}>   
+             
           </Route>  
           <Route path="/book/displayBookCard" component={DisplayBookCard}>
                 
@@ -95,4 +62,4 @@ const classes = useStyles();
     </Router>
   );
 }
-export default MyLibrary;
+export default BlinkistHome;

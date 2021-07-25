@@ -12,63 +12,33 @@ import PaperComponent from "../../atoms/PaperComponent";
 
 
 
-function BookCardGrid(props) {
-  const [pageStatus, setPageStatus] = useState("FIN");
-
-  const myLibraryBookList = [
-    {
-      name: "Book5",
-      author: "Author5",
-      image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
-      category: "enterpreneureship",
-      imageTitle: "My BOOK",
-      bookReadTime: "13 min read",
-      bookReadCount: "15 k read",
-      bState: "CRR",
-    },
-    {
-      name: "Book6",
-      author: "Author6",
-      image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
-      category: "enterpreneureship",
-      imageTitle: "My BOOK",
-      bookReadTime: "13 min read",
-      bookReadCount: "15 k read",
-      bState: "CRR",
-    },
-    {
-      name: "Book7",
-      author: "Author7",
-      image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
-      category: "politics",
-      imageTitle: "My BOOK",
-      bookReadTime: "13 min read",
-      bookReadCount: "15 k read",
-      bState: "CRR",
-    },
-    {
-      name: "Book8",
-      author: "Author8",
-      image: "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
-      category: "fiction",
-      imageTitle: "My BOOK",
-      bookReadTime: "13 min read",
-      bookReadCount: "15 k read",
-      bState: "CRR",
-    },
-  ];
-
+function MyLibrary(props) {
+  const [pageStatus, setPageStatus] = useState("FIN"); 
 
   const [bookArray, setBookArray] = useState([]);
 
   const changeBookStatus = (bk) => {
     for (let i = 0; i < bookArray.length; i++) {
       if (bookArray[i].book.name === bk.name) {
+        console.log("gk1 start");
+        console.log(bookArray[i].id);
+        console.log(bookArray[i].book.id);
+        console.log(bookArray[i].user.id);
+        console.log(bookArray[i].status);
+        console.log("gk1 end");
         if (bookArray[i].status === "CRR") {
           bookArray[i].status = "FIN";
         } else {
           bookArray[i].status = "CRR";
         }
+        axios.put('http://localhost:8080/userBook', 
+          {"id":bookArray[i].id,"user":{"id":bookArray[i].user.id},"book":{"id":bookArray[i].book.id},"status":bookArray[i].status}
+        )
+        .then((response) => {
+          console.log(response);
+        }, (error) => {
+          console.log(error);
+        });
         break;
       }
     }
@@ -135,9 +105,9 @@ function BookCardGrid(props) {
       <br />
 
       <Grid container spacing={4}>
+      
         {bookArray
           .filter((userBook) => {
-            console.log("gk1"+userBook.book);
             return userBook.status === `${pageStatus}`;
           })
           .map((userBook) => (
@@ -153,4 +123,4 @@ function BookCardGrid(props) {
     </>
   );
 }
-export default BookCardGrid;
+export default MyLibrary;

@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import MyLibrary from './pages/MyLibrary';
+import BlinkistHome from './pages/BlinkistHome';
 import ThemeProvider from '@material-ui/styles/ThemeProvider';
 import baseTheme from './themes';
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <ThemeProvider theme={baseTheme}>
     <div className="App">
-     <MyLibrary/>
+     <BlinkistHome/>
     </div>
     </ThemeProvider>
   );
