@@ -14,8 +14,8 @@ function Explorer(props) {
     axios
       .get("http://localhost:8080/book/category/enterpreneureship")
       .then(function (response) {
-        console.log("response data here");
-        console.log(response.data);        
+       // console.log("response data here");
+        // console.log(response.data);        
         setBookArray(response.data);
       })
       .catch((error) => {
@@ -44,11 +44,7 @@ function Explorer(props) {
       <Grid container spacing={4} >
         
         {bookArray
-          .filter((book) => {
-            console.log(book);
-            return book.category === 'enterpreneureship';
-          })
-          .map((book) => (
+            .map((book) => (
             <BookCard key={book.name} book={book} 
             buttonText = 'Add to Library'
             />

@@ -17,7 +17,7 @@ function ExploreDropdown(){
              </Link></Grid>
             <Grid item xs={4}>  <HourglassEmptyIcon/>Science</Grid>
             <Grid item xs={4}>  <PublicIcon/>Economics</Grid>
-            <Grid item xs={4} alignItems="flex-start">  <BusinessCenterIcon/>CorporatCulter</Grid>
+            <Grid item xs={4}>  <BusinessCenterIcon/>CorporatCulter</Grid>
             <Grid item xs={4}>  <NotificationsNoneIcon/>enterpreneureship</Grid>
             <Grid item xs={4}>  <HourglassEmptyIcon/>Science</Grid>
             <Grid item xs={4}>  <PublicIcon/>Economics</Grid>

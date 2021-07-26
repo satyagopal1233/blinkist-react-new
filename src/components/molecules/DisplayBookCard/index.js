@@ -6,7 +6,7 @@ function DisplayBookCard({history,location}){
     
     return(
        
-        <BookCard book={location.state}/>
+        <BookCard book={location.state} buttonText = 'Add to Library'/>
 
     );
 }

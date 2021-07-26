@@ -51,8 +51,8 @@ function MyLibrary(props) {
     axios
       .get("http://localhost:8080/userLibrary/5")
       .then(function (response) {
-        console.log("response data here");
-        console.log(response.data);        
+        //console.log("response data here");
+        //console.log(response.data);        
         setBookArray(response.data);
       })
       .catch((error) => {
@@ -67,14 +67,15 @@ function MyLibrary(props) {
 
   return (
     <>
-        <Grid container justify="flex-start">
+        <Grid container justifyContent="flex-start">
         
        <TypographyComponent variant="header" gutterBottom align="left">My Library</TypographyComponent>
        </Grid>
-       <Grid xs={12}>  
+       <Grid container>
+       <Grid item xs={12}>  
          <PaperComponent  paperProps={paperProps}/>
          </Grid>
-        
+         </Grid>
         
          <br/>
        

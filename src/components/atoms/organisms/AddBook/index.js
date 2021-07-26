@@ -1,12 +1,6 @@
 import React from 'react';
 import { Grid, Paper, Avatar, Typography, TextField, Button} from '@material-ui/core';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import { useState } from 'react';
 import axios from 'axios';
 function AddBook(){
@@ -27,14 +21,20 @@ function AddBook(){
         const newData = {...data};
         newData[e.target.id]=e.target.value;
         setData(newData);
-        console.log(newData);
+        //console.log(newData);
     };
     const submitForm = (e) =>{
         e.preventDefault();
         axios.post("http://localhost:8080/book",data)
         .then(res =>{
-            console.log(res);
-        });
+            //console.log(res);
+            alert("Book successfully added");
+        })
+        .catch((error) => {
+            console.log(error);
+          });
+        
+        ;
        
 
     };
@@ -47,7 +47,6 @@ function AddBook(){
                     <Avatar style={avatarStyle}>
                         <AddCircleOutlineOutlinedIcon />
                     </Avatar>
-                    <h2 style={headerStyle}>Sign Up</h2>
                     <Typography variant='caption' gutterBottom>Please fill this form to add a Book !</Typography>
                 </Grid>
                 <form onSubmit={e=>submitForm(e)}>
