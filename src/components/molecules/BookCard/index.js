@@ -14,6 +14,8 @@ const useStyles = makeStyles({
   root: {
     maxWidth: "90%",
     height: "100%",
+    
+   
   },
 
   
@@ -37,8 +39,8 @@ function BookCard(props) {
           title={book.name}
         />
         <CardContent>
-          <TypographyComponent gutterBottom variant="title" >
-           {book.name}
+          <TypographyComponent gutterBottom variant="title" fontWeight="fontWeightMedium" >
+           <b>{book.name}</b>
           </TypographyComponent>
           <TypographyComponent variant="subtitle">
          {book.author}

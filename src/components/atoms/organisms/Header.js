@@ -20,6 +20,8 @@ import ExploreDropdown from "../../molecules/ExplorerDropdown";
 import PaperComponent from "../PaperComponent";
 import "@fontsource/raleway";
 import { fontWeight } from "@material-ui/system";
+import ExploreDropdownPopup from "./ExploreDropdownPopup";
+import { FormatListBulletedOutlined } from "@material-ui/icons";
 
 
 
@@ -49,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
 function Header() {
   const classes = useStyles();
   const [show, setShow] = useState(false);
+  const [openPopup,setOpenPopup] = useState(false);
   const paperProps = {
     title:'Explore books on Entrepreneurship',
     description:'Everything you need to know about thriving on a shortering budget, making your first million,and hiring right from the start'
@@ -70,9 +73,8 @@ function Header() {
           </Typography>
           
             <Link
-            onClick={() => setShow(prev => !prev)}
-            to=""
-             href="#" style={{ marginRight: 16 }}>
+            onClick={() => setOpenPopup(true)}
+            href="#" style={{ marginRight: 16 }}>
             Explore
           </Link>
         
@@ -111,8 +113,12 @@ function Header() {
        
       </Toolbar>
      
-      {show &&  
-        <ExploreDropdown/>  }
+     
+        <ExploreDropdownPopup 
+        openPopup={openPopup}
+        setOpenPopup={setOpenPopup}        
+        /> 
+         
     </>
   );
 }

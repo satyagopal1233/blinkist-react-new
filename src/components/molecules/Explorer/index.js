@@ -21,8 +21,21 @@ function Explorer(props) {
       .catch((error) => {
         console.log(error);
       });
+      axios
+      .get("http://localhost:8080/userLibrary/5")
+      .then(function (response) {
+        //console.log("response data here");
+        //console.log(response.data);        
+        setUserLibrary(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+
   },[]);
   const [bookArray, setBookArray] = useState([]);
+  const [userLibrary, setUserLibrary] = useState([]);
 
   const paperProps = {
     title:'Explore books on Entrepreneurship',
@@ -44,11 +57,15 @@ function Explorer(props) {
       <Grid container spacing={4} >
         
         {bookArray
-            .map((book) => (
+            .map((book) => (   
+                  
             <BookCard key={book.name} book={book} 
             buttonText = 'Add to Library'
             />
-          ))}
+            
+          ))
+          
+          }
       </Grid>
       </>
     );

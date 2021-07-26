@@ -20,12 +20,12 @@ function MyLibrary(props) {
   const changeBookStatus = (bk) => {
     for (let i = 0; i < bookArray.length; i++) {
       if (bookArray[i].book.name === bk.name) {
-        console.log("gk1 start");
-        console.log(bookArray[i].id);
-        console.log(bookArray[i].book.id);
-        console.log(bookArray[i].user.id);
-        console.log(bookArray[i].status);
-        console.log("gk1 end");
+       // console.log("gk1 start");
+        //console.log(bookArray[i].id);
+        //console.log(bookArray[i].book.id);
+        //console.log(bookArray[i].user.id);
+        //console.log(bookArray[i].status);
+        //console.log("gk1 end");
         if (bookArray[i].status === "CRR") {
           bookArray[i].status = "FIN";
         } else {
@@ -67,15 +67,17 @@ function MyLibrary(props) {
 
   return (
     <>
-        <Grid container justifyContent="flex-start">
         
+        <Grid container justifyContent="flex-start" >
+        <Grid item xs={12}> 
        <TypographyComponent variant="header" gutterBottom align="left">My Library</TypographyComponent>
        </Grid>
-       <Grid container>
+      
        <Grid item xs={12}>  
          <PaperComponent  paperProps={paperProps}/>
          </Grid>
          </Grid>
+        
         
          <br/>
        
