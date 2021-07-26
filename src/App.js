@@ -4,11 +4,12 @@ import BlinkistHome from './pages/BlinkistHome';
 import ThemeProvider from '@material-ui/styles/ThemeProvider';
 import baseTheme from './themes';
 
+
 function App() {
   return (
     <ThemeProvider theme={baseTheme}>
     <div className="App">
-     <BlinkistHome/>
+     <BlinkistHome/>     
     </div>
     </ThemeProvider>
   );

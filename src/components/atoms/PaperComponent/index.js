@@ -14,6 +14,7 @@ function PaperComponent(props){
     const{title,description} = props;
     const classes = useStyles();
     return(   
+      
     <Grid>
       <Paper elevation={0} className={classes.sidebarAboutBox}>
         <Typography variant="h6" gutterBottom>

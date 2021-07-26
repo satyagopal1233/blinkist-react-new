@@ -8,11 +8,15 @@ import { Dialog, DialogContent, DialogTitle, makeStyles } from "@material-ui/cor
 import TypographyComponent from '../../Typography';
 const useStyles= makeStyles(theme => ({
     dialogWrapper:{
-        padding:theme.spacing(1),
+        padding: theme.spacing(2),
         position:'absolute',
-        top:theme.spacing(3)
+        top: theme.spacing(5)
 
-    }
+    },
+    wrapIcon: {
+        verticalAlign: 'middle',
+        display: 'inline-flex'
+       }
 
 }));
 function ExploreDropdownPopup(props){
@@ -20,27 +24,28 @@ function ExploreDropdownPopup(props){
     
     const classes= useStyles();
     return(
-        <Dialog open={openPopup} maxWidth="md"  classes={{paper:classes.dialogWrapper}} overlayStyle={{backgroundColor: 'transparent'}}>
+        <Dialog open={openPopup} maxWidth="md"  classes={{paper:classes.dialogWrapper}}>
+            <DialogTitle></DialogTitle>
             <DialogContent>
            
-             <Grid container spacing={4}  >
-            <Grid item xs={4} > <NotificationsNoneIcon/> 
+             <Grid container spacing={3} >
+            <Grid item xs={4} > <NotificationsNoneIcon className={classes.wrapIcon}/> 
             <Link
             to=""
              href="/book/enterpreneureship">
             enterpreneureship
              </Link></Grid>
-            <Grid item xs={4}>  <HourglassEmptyIcon/>Science</Grid>
-            <Grid item xs={4}>  <PublicIcon/>Economics</Grid>
-            <Grid item xs={4}>  <BusinessCenterIcon/>CorporatCulter</Grid>
-            <Grid item xs={4}>  <NotificationsNoneIcon/>enterpreneureship</Grid>
-            <Grid item xs={4}>  <HourglassEmptyIcon/>Science</Grid>
-            <Grid item xs={4}>  <PublicIcon/>Economics</Grid>
-            <Grid item xs={4}>  <BusinessCenterIcon/>CorporatCulter</Grid>
-            <Grid item xs={4}>  <NotificationsNoneIcon/>enterpreneureship</Grid>
-            <Grid item xs={4}>  <NotificationsNoneIcon/>enterpreneureship</Grid>
-            <Grid item xs={4}>  <NotificationsNoneIcon/>enterpreneureship</Grid>
-            <Grid item xs={4}>  <NotificationsNoneIcon/>enterpreneureship</Grid>
+            <Grid item xs={4}>  <HourglassEmptyIcon className={classes.wrapIcon}/>Science</Grid>
+            <Grid item xs={4}>  <PublicIcon className={classes.wrapIcon}/>Economics</Grid>
+            <Grid item xs={4}>  <BusinessCenterIcon className={classes.wrapIcon}/>CorporatCulter</Grid>
+            <Grid item xs={4}>  <NotificationsNoneIcon className={classes.wrapIcon}/>enterpreneureship</Grid>
+            <Grid item xs={4}>  <HourglassEmptyIcon className={classes.wrapIcon}/>Science</Grid>
+            <Grid item xs={4}>  <PublicIcon className={classes.wrapIcon}/>Economics</Grid>
+            <Grid item xs={4}>  <BusinessCenterIcon className={classes.wrapIcon}/>CorporatCulter</Grid>
+            <Grid item xs={4}>  <NotificationsNoneIcon className={classes.wrapIcon}/>enterpreneureship</Grid>
+            <Grid item xs={4}>  <NotificationsNoneIcon className={classes.wrapIcon}/>enterpreneureship</Grid>
+            <Grid item xs={4}>  <NotificationsNoneIcon className={classes.wrapIcon}/>enterpreneureship</Grid>
+            <Grid item xs={4}>  <NotificationsNoneIcon className={classes.wrapIcon}/>enterpreneureship</Grid>
             </Grid>
 
        

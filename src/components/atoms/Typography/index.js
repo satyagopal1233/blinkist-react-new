@@ -17,7 +17,7 @@ const getMappedVariant = (variant) => {
 };
 
 const TypographyComponent = (props) => (
-  <Typography variant={getMappedVariant(props.variant)} noWrap="true">
+  <Typography variant={getMappedVariant(props.variant)} noWrap>
     {props.children}
   </Typography>
 );

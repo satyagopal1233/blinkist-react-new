@@ -54,12 +54,13 @@ function BookCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
+      {buttonText.length > 0 && (
       <ButtonComponent
           onClick={() => changeStatusOfBook(props.onchangestate, props.book)}
         >
           {buttonText}
         </ButtonComponent>
-        
+      )}
       </CardActions>
     </Card>
     </Grid>
