@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router";
 import Grid from "@material-ui/core/Grid";
-import LinK, { Link } from "@material-ui/core";
+import LinK, { Divider, Link } from "@material-ui/core";
 import BookCard from "../BookCard";
 
 import userListFetch from "../../../axios/UserListAxios";
@@ -20,12 +20,6 @@ function MyLibrary(props) {
   const changeBookStatus = (bk) => {
     for (let i = 0; i < bookArray.length; i++) {
       if (bookArray[i].book.name === bk.name) {
-       // console.log("gk1 start");
-        //console.log(bookArray[i].id);
-        //console.log(bookArray[i].book.id);
-        //console.log(bookArray[i].user.id);
-        //console.log(bookArray[i].status);
-        //console.log("gk1 end");
         if (bookArray[i].status === "CRR") {
           bookArray[i].status = "FIN";
         } else {
@@ -106,6 +100,7 @@ function MyLibrary(props) {
           </Link>
         </Grid>
       </Grid>
+      <Divider/>
       <br />
 
       <Grid container spacing={4}>

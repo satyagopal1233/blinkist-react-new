@@ -38,7 +38,7 @@ function SearchBookAutoComplete(props) {
      
       <ul>
         {bookMatch &&
-          bookMatch.map((book) => <li key={book.name}><Link to={{pathname: '/book/displayBookCard',state:book}}>{book.name}</Link></li>)}
+          bookMatch.map((book) => <li key={book.name}><Link to={{pathname: '/book/displayBookCard',state:book}}><b>{book.name}</b></Link></li>)}
       </ul>
       <Grid container justifyContent="flex-start">
       <TypographyComponent variant="header" gutterBottom align="left">Trending Blinks</TypographyComponent>

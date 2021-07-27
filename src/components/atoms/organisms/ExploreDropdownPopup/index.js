@@ -24,9 +24,11 @@ function ExploreDropdownPopup(props){
     
     const classes= useStyles();
     return(
+       
         <Dialog open={openPopup} maxWidth="md"  classes={{paper:classes.dialogWrapper}}>
-            <DialogTitle></DialogTitle>
+           
             <DialogContent>
+            <div style={{ padding:8 }}>
            
              <Grid container spacing={3} >
             <Grid item xs={4} > <NotificationsNoneIcon className={classes.wrapIcon}/> 
@@ -49,7 +51,7 @@ function ExploreDropdownPopup(props){
             </Grid>
 
        
-       
+            </div>
             </DialogContent>
         </Dialog>
 
