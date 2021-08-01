@@ -7,102 +7,66 @@ import PaperComponent from "../../atoms/PaperComponent";
 import TypographyComponent from "../../atoms/Typography";
 import SearchBookAutoComplete from "../../atoms/organisms/SearchBookAutoComplete";
 import MyLibrary from "../MyLibrary";
+import { connect, useDispatch, useSelector } from "react-redux";
 
-function Explorer(props) {
-  
-  
+import {
+  addToUserLibrary,
+  getUserLibrary,
+} from "../../redux/userLibrary/userLibraryActions";
+import { getBooksByCategory } from "../../redux/books/booksActions";
+
+function Explorer() {
+  const userLibrary = useSelector((state) => state.userLibrary.userLibrary);
+  const bookArray = useSelector((state) => state.books.books);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/book/category/enterpreneureship")
-      .then(function (response) {
-       console.log("response data here");
-        // console.log(response.data);        
-        setBookArray(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-      axios
-      .get("http://localhost:8080/userLibrary/5")
-      .then(function (response) {
-        //console.log("response data here");
-        //console.log(response.data);        
-        setUserLibrary(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-
-  },[]);
-  const addToUserLibrary = (bk) => {
-    alert("adding to library");
-    axios.post('http://localhost:8080/userBook', 
-    {"user":{"id":"5"},"book":{"id":bk.id},"status":"CRR"}
-
-
-
-  )
-  .then((response) => {
-    console.log(response.data);
-    console.log("before modified userlibrary");
-    console.log({userLibrary});
-    setUserLibrary( prevState => [...prevState,response.data]);
-    console.log("after modified userlibrary");
-    console.log({userLibrary});
-
-    }, (error) => {
-    console.log(error);
-  });
-
+    dispatch(getUserLibrary());
+  }, []);
+  useEffect(() => {
+    dispatch(getBooksByCategory());
+  }, []);
+  const addToUserLib = (bk) => {
+    dispatch(addToUserLibrary(bk));
   };
-
-  const [bookArray, setBookArray] = useState([]);
-  const [userLibrary, setUserLibrary] = useState([]);
 
   const paperProps = {
-    title:'Explore books on Entrepreneurship',
-    description:'Everything you need to know about thriving on a shortering budget, making your first million,and hiring right from the start'
+    title: "Explore books on Entrepreneurship",
+    description:
+      "Everything you need to know about thriving on a shortering budget, making your first million,and hiring right from the start",
   };
-  
- 
-    return (
 
-      <>
-      
-     
-      
+  return (
+    <>
+      <PaperComponent paperProps={paperProps} />
 
-      <PaperComponent  paperProps={paperProps}/>
-     
-      <SearchBookAutoComplete bookArray={bookArray}/>
-    
-      <Grid container spacing={4} >
-        
-        {bookArray
-            .map((book) => {  
-                 // console.log(userLibrary);
-                 console.log("**********************");
-                 console.log(userLibrary);
-                 console.log(book);
-                  const btnTextFlag = userLibrary.some( userBook => userBook.book.name === book.name );
-                  console.log(btnTextFlag);
-                  console.log("**********************");
-           return <BookCard key={book.name} book={book} 
-            buttonText = {(btnTextFlag)?'':'Add to Library'}
-            onchangestate={(bk) => {
-              addToUserLibrary(bk);
-            }}
+      <SearchBookAutoComplete bookArray={bookArray} />
 
-            />;
-            
-            })
-          
-          }
+      <Grid container spacing={4}>
+        {bookArray.map((book) => {
+          // console.log(userLibrary);
+          console.log("**********************");
+          console.log("userlibrary=", userLibrary);
+          console.log(book);
+          const btnTextFlag = userLibrary.some(
+            (userBook) => userBook.book.name === book.name
+          );
+          console.log(btnTextFlag);
+          console.log("**********************");
+          return (
+            <BookCard
+              key={book.name}
+              book={book}
+              buttonText={btnTextFlag ? "" : "Add to Library"}
+              onchangestate={(bk) => {
+                addToUserLib(bk);
+              }}
+            />
+          );
+        })}
       </Grid>
-      </>
-    );
-        
-          }
-export default Explorer;
+    </>
+  );
+}
 
+export default Explorer;

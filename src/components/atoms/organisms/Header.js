@@ -7,10 +7,10 @@ import {
   Button,
   Paper,
   Avatar,
-  Container,
-  Link
+  Container
+  
 } from "@material-ui/core";
-
+import { Link} from "react-router-dom";
 import React, { useState } from 'react';
 import SearchIcon from "@material-ui/icons/Search";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -50,7 +50,7 @@ function Header() {
             
             Blinkist</b>
           </Typography>
-           
+            
             <Link
             to="#"
             onClick={() => setOpenPopup(true)}
@@ -60,8 +60,8 @@ function Header() {
         
 
           <Link
-            to=""
-            href='/book/myLibrary' style={{ marginRight: 16 }}>
+            to="/book/myLibrary"
+            href='#' style={{ marginRight: 16 }}>
             MyLibrary
           </Link>
           <Link
@@ -76,8 +76,8 @@ function Header() {
             Highlights
           </Link>
           <Link
-            to=""
-            href='/addBook' style={{ marginRight: 16 }}>
+            to="/addBook"
+            href='#' style={{ marginRight: 16 }}>
             Add Book
           </Link>
 

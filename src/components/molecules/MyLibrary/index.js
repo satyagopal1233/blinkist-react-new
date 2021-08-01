@@ -8,57 +8,48 @@ import userListFetch from "../../../axios/UserListAxios";
 import axios from "axios";
 import TypographyComponent from "../../atoms/Typography";
 import PaperComponent from "../../atoms/PaperComponent";
+import { connect, useDispatch, useSelector } from 'react-redux';
+import { updateToUserLibrary } from "../../redux/userLibrary/userLibraryActions";
+
 
 
 
 
 function MyLibrary(props) {
+  const bookArray = useSelector(state => state.userLibrary.userLibrary);
+  console.log(" modified userlibrary from redux store",bookArray);
   const [pageStatus, setPageStatus] = useState("FIN"); 
+  const dispatch = useDispatch();
+  
 
-  const [bookArray, setBookArray] = useState([]);
 
+ 
   const changeBookStatus = (bk) => {
+    let status='CRR';
+    
     for (let i = 0; i < bookArray.length; i++) {
       if (bookArray[i].book.name === bk.name) {
         if (bookArray[i].status === "CRR") {
-          bookArray[i].status = "FIN";
+          status = "FIN";
         } else {
-          bookArray[i].status = "CRR";
+          status = "CRR";
         }
-        axios.put('http://localhost:8080/userBook', 
-          {"id":bookArray[i].id,"user":{"id":bookArray[i].user.id},"book":{"id":bookArray[i].book.id},"status":bookArray[i].status}
-        )
-        .then((response) => {
-          console.log(response);
-        }, (error) => {
-          console.log(error);
-        });
+        const userBook = {"id":bookArray[i].id,"user":{"id":bookArray[i].user.id},"book":{"id":bookArray[i].book.id},"status":status};
+        dispatch(updateToUserLibrary(userBook,i));
         break;
       }
-    }
-
-    setBookArray([...bookArray]);
+       
+    }  
+    
   };
 
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8080/userLibrary/5")
-      .then(function (response) {
-        //console.log("response data here");
-        //console.log(response.data);        
-        setBookArray(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },[]);
-
+  
   const paperProps = {
     title:'Find Audiobooks on the blinkist App',
     description:'with premium you will get the whole Blinkist library for free,plus full-length notification audiobooks at a special member price'
   };
-
+  console.log("userlibrary from redux store",{bookArray});
   return (
     <>
         
@@ -100,7 +91,7 @@ function MyLibrary(props) {
           </Link>
         </Grid>
       </Grid>
-      <Divider/>
+      
       <br />
 
       <Grid container spacing={4}>
@@ -122,4 +113,6 @@ function MyLibrary(props) {
     </>
   );
 }
+
 export default MyLibrary;
+

@@ -3,7 +3,10 @@ import { Grid, Paper, Avatar, Typography, TextField, Button} from '@material-ui/
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import { useState } from 'react';
 import axios from 'axios';
+import { addToBooks } from '../../../redux/books/booksActions';
+import { useDispatch } from 'react-redux';
 function AddBook(){
+    const dispatch = useDispatch();
     const [data,setData] = useState({
         author:"",
         name:"",
@@ -23,19 +26,22 @@ function AddBook(){
         setData(newData);
         //console.log(newData);
     };
-    const submitForm = (e) =>{
-        e.preventDefault();
-        axios.post("http://localhost:8080/book",data)
-        .then(res =>{
-            //console.log(res);
-            alert("Book successfully added");
-        })
-        .catch((error) => {
-            console.log(error);
-          });
+    const addBook = () =>{
+      //  e.preventDefault();
+      //  axios.post("http://localhost:8080/book",data)
+      //  .then(res =>{
+      //      //console.log(res);
+      //      alert("Book successfully added");
+      //  })
+      //  .catch((error) => {
+      //      console.log(error);
+      //    });
         
-        ;
-       
+      //  ;
+      console.log("before submitting data",data);
+      dispatch(addToBooks(data));
+      alert("book added");
+
 
     };
     return (
@@ -49,14 +55,14 @@ function AddBook(){
                     </Avatar>
                     <Typography variant='caption' gutterBottom>Please fill this form to add a Book !</Typography>
                 </Grid>
-                <form onSubmit={e=>submitForm(e)}>
+                <form>
                     <TextField fullWidth label='Name' id="name" placeholder="Enter Book name" onChange={e=>handleInput(e)}/>
                     <TextField fullWidth label='Author' id="author" placeholder="Enter Book Author" onChange={e=>handleInput(e)}/>
                     <TextField fullWidth label='Category' id="category" placeholder="Enter Book Category" onChange={e=>handleInput(e)}/>
                     <TextField fullWidth label='Book Image url' id="image" placeholder="Enter Book Image url" onChange={e=>handleInput(e)}/>
                     <TextField fullWidth label='Book Read Count' id="bookReadCount" placeholder="Enter Book Read Count" onChange={e=>handleInput(e)}/>
                     <TextField fullWidth label='Book Read TIme' id="bookReadTime" placeholder="Enter Book Read Time" onChange={e=>handleInput(e)}/>
-                    <Button type='submit' variant='contained' id="name" color='primary'>Submit</Button>
+                    <Button  variant='contained' id="name" color='primary' onClick={addBook}>Submit</Button>
                 </form>
             </Paper>
         </Grid>
