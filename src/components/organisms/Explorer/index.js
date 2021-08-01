@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router";
+
 import Grid from "@material-ui/core/Grid";
-import BookCard from "../BookCard";
-import axios from "axios";
+
+
 import PaperComponent from "../../atoms/PaperComponent";
-import TypographyComponent from "../../atoms/Typography";
-import SearchBookAutoComplete from "../../atoms/organisms/SearchBookAutoComplete";
-import MyLibrary from "../MyLibrary";
+
+
+
 import { connect, useDispatch, useSelector } from "react-redux";
 
 import {
@@ -14,6 +14,8 @@ import {
   getUserLibrary,
 } from "../../redux/userLibrary/userLibraryActions";
 import { getBooksByCategory } from "../../redux/books/booksActions";
+import SearchBookAutoComplete from "../SearchBookAutoComplete";
+import BookCard from "../../molecules/BookCard";
 
 function Explorer() {
   const userLibrary = useSelector((state) => state.userLibrary.userLibrary);

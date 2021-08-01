@@ -5,7 +5,7 @@ import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import PublicIcon from '@material-ui/icons/Public';
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import { Dialog, DialogContent, DialogTitle, makeStyles } from "@material-ui/core";
-import TypographyComponent from '../../Typography';
+
 const useStyles= makeStyles(theme => ({
     dialogWrapper:{
         padding: theme.spacing(2),

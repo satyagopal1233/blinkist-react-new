@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 
 import Typography from "@material-ui/core/Typography";
 
@@ -22,13 +22,6 @@ const TypographyComponent = (props) => (
   </Typography>
 );
 
-TypographyComponent.propTypes = {
-  children: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(["header", "title", "subtitle", "body"]),
-};
 
-TypographyComponent.defaultProps = {
-  variant: "body",
-};
 
 export default TypographyComponent;

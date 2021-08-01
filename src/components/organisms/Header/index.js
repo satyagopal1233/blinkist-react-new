@@ -7,39 +7,36 @@ import {
   Button,
   Paper,
   Avatar,
-  Container
+  Container,
+  Toolbar,
+  StylesProvider
   
 } from "@material-ui/core";
 import { Link} from "react-router-dom";
 import React, { useState } from 'react';
-import SearchIcon from "@material-ui/icons/Search";
-import Toolbar from "@material-ui/core/Toolbar";
-import AppBar from "@material-ui/core/AppBar";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import ExploreDropdown from "../../molecules/ExplorerDropdown";
-import PaperComponent from "../PaperComponent";
-import { fontWeight } from "@material-ui/system";
-import ExploreDropdownPopup from "./ExploreDropdownPopup";
-import { FormatListBulletedOutlined } from "@material-ui/icons";
+import ExploreDropdownPopup from "../ExploreDropdownPopup";
 
-
-
-
+const useStyles = makeStyles((theme) => ({
+  anchorStyles: {
+    color: '#00c853',
+    marginRight: 16 ,
+    fontSize:16
+  }
+}));
 
 
 function Header() {
+
+  const classes = useStyles();
   
-  const [show, setShow] = useState(false);
   const [openPopup,setOpenPopup] = useState(false);
-  const paperProps = {
-    title:'Explore books on Entrepreneurship',
-    description:'Everything you need to know about thriving on a shortering budget, making your first million,and hiring right from the start'
-  };
+ 
   return (
+    
     <React.Fragment>
+      
        
-     
+      
       <Toolbar
         component="nav"
        
@@ -54,14 +51,14 @@ function Header() {
             <Link
             to="#"
             onClick={() => setOpenPopup(true)}
-            href="#" style={{ marginRight: 16 }}>
+            href="#" style={{ marginRight: 16 }}  className={classes.anchorStyles} >
             Explore
           </Link>
         
 
           <Link
             to="/book/myLibrary"
-            href='#' style={{ marginRight: 16 }}>
+            href='#' style={{ marginRight: 16 }} className={classes.anchorStyles}>
             MyLibrary
           </Link>
           <Link
@@ -70,14 +67,14 @@ function Header() {
             key="Highlights"
             variant="body2"
             href="#"
-          
+            className={classes.anchorStyles}
             style={{ marginRight: 16 }}
           >
             Highlights
           </Link>
           <Link
             to="/addBook"
-            href='#' style={{ marginRight: 16 }}>
+            href='#' className={classes.anchorStyles} style={{ marginRight: 16 }}>
             Add Book
           </Link>
 
@@ -86,7 +83,7 @@ function Header() {
             to="#"
             key="Account"
             href="#"
-           
+            className={classes.anchorStyles}
             style={{ marginRight: 16 }}
           >
             Account
@@ -95,13 +92,15 @@ function Header() {
       </Toolbar>
 
       
-     
+      
      
         <ExploreDropdownPopup 
         openPopup={openPopup}
         setOpenPopup={setOpenPopup}        
         /> 
-         
+        
+        
+        
   </React.Fragment>
   );
 }

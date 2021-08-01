@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import BookCard from '../BookCard';
+import BookCard from '../../molecules/BookCard';
+
+
 function DisplayBookCard({history,location}){
     const [book,setBook] = useState(location.state); 
 
@@ -7,7 +9,8 @@ function DisplayBookCard({history,location}){
     return(
         
         <center>
-        <BookCard book={book} buttonText = ''/>
+        
+         <BookCard book={book} buttonText = ''/>
         </center>
     );
 }

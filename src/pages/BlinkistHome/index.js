@@ -1,19 +1,24 @@
 import { Container, Typography ,  makeStyles,Link, Avatar} from "@material-ui/core";
 import React from "react";
-import Header from "../components/atoms/organisms/Header";
-import BookCard from "../components/molecules/BookCard";
-import Grid from "@material-ui/core/Grid";
-import Footer from "../components/atoms/organisms/Footer";
-import PaperComponent from "../components/atoms/PaperComponent";
-import TypographyComponent from "../components/atoms/Typography";
-import Toolbar from "@material-ui/core/Toolbar";
-import MyLibrary from "../components/molecules/MyLibrary";
+
+
+
+
+
 import { BrowserRouter as Router,Route} from "react-router-dom";
-import { Explore } from "@material-ui/icons";
-import Explorer from "../components/molecules/Explorer";
+
+
 import "@fontsource/raleway";
-import DisplayBookCard from "../components/molecules/DisplayBookCard";
-import AddBook from "../components/atoms/organisms/AddBook";
+
+import AddBook from "../../components/organisms/AddBook";
+
+import DisplayBookCard from "../../components/organisms/DisplayBookCard";
+import Header from "../../components/organisms/Header";
+import MyLibrary from "../../components/organisms/MyLibrary";
+import Explorer from "../../components/organisms/Explorer";
+import Footer from "../../components/atoms/Footer";
+
+
 
 
 function BlinkistHome() {
@@ -26,13 +31,16 @@ function BlinkistHome() {
     <React.Fragment>
      
       <Container maxWidth="lg">
+       
         
       <Header/>
+           
+      
         
        
          <br/>
        
-         
+            
            <Route path="/book/enterpreneureship" component={Explorer}>   
              
           </Route>   
@@ -47,7 +55,9 @@ function BlinkistHome() {
                 </Route> 
         
       </Container>
-      <Footer />
+      <Footer/>
+      
+      
     </React.Fragment>
     </Router>
   );

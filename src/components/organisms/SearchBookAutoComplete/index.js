@@ -5,7 +5,8 @@ import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
-import TypographyComponent from "../../Typography";
+import TypographyComponent from "../../atoms/Typography";
+
 function SearchBookAutoComplete(props) {
   const books = props.bookArray;
 
@@ -42,6 +43,7 @@ function SearchBookAutoComplete(props) {
       </ul>
       <Grid container justifyContent="flex-start">
       <TypographyComponent variant="header" gutterBottom align="left">Trending Blinks</TypographyComponent>
+      
       </Grid>
     </>
   );

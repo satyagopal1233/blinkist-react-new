@@ -2,9 +2,8 @@ import React from 'react';
 import { Grid, Paper, Avatar, Typography, TextField, Button} from '@material-ui/core';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import { useState } from 'react';
-import axios from 'axios';
-import { addToBooks } from '../../../redux/books/booksActions';
 import { useDispatch } from 'react-redux';
+import { addToBooks } from '../../redux/books/booksActions';
 function AddBook(){
     const dispatch = useDispatch();
     const [data,setData] = useState({
@@ -27,17 +26,6 @@ function AddBook(){
         //console.log(newData);
     };
     const addBook = () =>{
-      //  e.preventDefault();
-      //  axios.post("http://localhost:8080/book",data)
-      //  .then(res =>{
-      //      //console.log(res);
-      //      alert("Book successfully added");
-      //  })
-      //  .catch((error) => {
-      //      console.log(error);
-      //    });
-        
-      //  ;
       console.log("before submitting data",data);
       dispatch(addToBooks(data));
       alert("book added");
