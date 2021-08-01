@@ -7,6 +7,9 @@ import { Provider } from 'react-redux';
 
 import store from './components/redux/store';
 import BlinkistHome from './pages/BlinkistHome';
+import HomeTemplate from './components/templates/HomeTemplate';
+import HomePage from './pages/HomePage';
+import { BrowserRouter as Router,Route} from "react-router-dom";
 
 
 
@@ -15,14 +18,16 @@ import BlinkistHome from './pages/BlinkistHome';
 
 function App() {
   return (
+    <Router>
     <ThemeProvider theme={baseTheme}>
      <Provider store={store}>
     <div className="App">
-    <BlinkistHome/>
+   <HomePage/>
     
     </div>
     </Provider>
     </ThemeProvider>
+    </Router>
   );
 }
 

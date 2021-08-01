@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router";
 import Grid from "@material-ui/core/Grid";
 import LinK, { Divider, Link, makeStyles } from "@material-ui/core";
-
-
-
 import TypographyComponent from "../../atoms/Typography";
 import PaperComponent from "../../atoms/PaperComponent";
 import { connect, useDispatch, useSelector } from "react-redux";
@@ -12,19 +9,18 @@ import { updateToUserLibrary } from "../../redux/userLibrary/userLibraryActions"
 import BookCard from "../../molecules/BookCard";
 const useStyles = makeStyles((theme) => ({
   activeLink: {
-    color: '#00c853',   
+    color: "#00c853",
   },
   deActiveLink: {
-    color: 'black',   
-  }
+    color: "black",
+  },
 }));
 
 function MyLibrary(props) {
   const classes = useStyles();
   const bookArray = useSelector((state) => state.userLibrary.userLibrary);
-  console.log(" modified userlibrary from redux store", bookArray);
   const [pageStatus, setPageStatus] = useState("FIN");
-  const [activeLink, setActiveLink] = useState('crr');
+  const [activeLink, setActiveLink] = useState("fin");
   const dispatch = useDispatch();
 
   const changeBookStatus = (bk) => {
@@ -52,8 +48,7 @@ function MyLibrary(props) {
   const ClickLinkHandler = (e) => {
     const { name } = e.target;
     setActiveLink(name);
-    (name==='crr'?setPageStatus('CRR'):setPageStatus('FIN'));
-    
+    name === "crr" ? setPageStatus("CRR") : setPageStatus("FIN");
   };
 
   const paperProps = {
@@ -61,7 +56,7 @@ function MyLibrary(props) {
     description:
       "with premium you will get the whole Blinkist library for free,plus full-length notification audiobooks at a special member price",
   };
-  console.log("userlibrary from redux store", { bookArray });
+
   return (
     <>
       <Grid container justifyContent="flex-start">
@@ -84,11 +79,12 @@ function MyLibrary(props) {
             to="#"
             href="#"
             name="crr"
-            onClick={
-              ClickLinkHandler
-              
+            onClick={ClickLinkHandler}
+            className={
+              activeLink === "crr"
+                ? `${classes.activeLink}`
+                : `${classes.deActiveLink}`
             }
-            className={activeLink === "crr" ? `${classes.activeLink}` :`${classes.deActiveLink}`}
           >
             Currently Reading
           </Link>
@@ -98,11 +94,12 @@ function MyLibrary(props) {
             to="#"
             href="#"
             name="fin"
-            onClick={
-              ClickLinkHandler
-              
+            onClick={ClickLinkHandler}
+            className={
+              activeLink === "fin"
+                ? `${classes.activeLink}`
+                : `${classes.deActiveLink}`
             }
-            className={activeLink === "fin" ? `${classes.activeLink}` :`${classes.deActiveLink}`}
           >
             Finished
           </Link>
@@ -117,7 +114,6 @@ function MyLibrary(props) {
             return userBook.status === `${pageStatus}`;
           })
           .map((userBook) => (
-            
             <BookCard
               key={userBook.book.name}
               buttonText={

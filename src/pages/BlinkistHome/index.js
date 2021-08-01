@@ -27,7 +27,7 @@ function BlinkistHome() {
 
 
   return (
-    <Router>
+  
     <React.Fragment>
      
       <Container maxWidth="lg">
@@ -59,7 +59,7 @@ function BlinkistHome() {
       
       
     </React.Fragment>
-    </Router>
+ 
   );
 }
 export default BlinkistHome;
