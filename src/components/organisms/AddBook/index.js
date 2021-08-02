@@ -26,7 +26,7 @@ function AddBook(){
         //console.log(newData);
     };
     const addBook = () =>{
-      console.log("before submitting data",data);
+     // console.log("before submitting data",data);
       dispatch(addToBooks(data));
       alert("book added");
 

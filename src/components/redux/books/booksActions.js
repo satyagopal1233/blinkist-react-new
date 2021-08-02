@@ -6,8 +6,8 @@ export const getBooksByCategory = () => {
         
         axios.get("http://localhost:8080/book/category/enterpreneureship")
         .then(response => {
-            console.log("*****************in getBooksByCategory*************");
-            console.log(response);
+        //    console.log("*****************in getBooksByCategory*************");
+        //    console.log(response);
             dispatch({
                 type: FETCH_BOOKS_BY_CATEGORY,
                 payload: response.data
@@ -25,7 +25,7 @@ export const addToBooks = book => {
     return (dispatch) => {
         axios.post('http://localhost:8080/book', book)
         .then(response => {
-            console.log("*****************in addToBooks*************");
+          //  console.log("*****************in addToBooks*************");
             dispatch({
                 type: ADD_TO_BOOKS,
                 payload: response.data

@@ -6,8 +6,8 @@ export const getUserLibrary = () => {
         
         axios.get('http://localhost:8080/userLibrary/5')
         .then(response => {
-            console.log("*****************in getUserLIbrary*************");
-            console.log(response);
+          //  console.log("*****************in getUserLIbrary*************");
+          //  console.log(response);
             dispatch({
                 type: FETCH_USERLIBRARY,
                 payload: response.data
@@ -27,7 +27,7 @@ export const addToUserLibrary = book => {
         {"user":{"id":"5"},"book":{"id":book.id},"status":"CRR"}
         )
         .then(response => {
-            console.log("*****************in addToUserLibrary*************");
+          //  console.log("*****************in addToUserLibrary*************");
             dispatch({
                 type: ADD_TO_USERLIBRARY,
                 payload: response.data
@@ -42,7 +42,7 @@ export const updateToUserLibrary = (userBook,index) => {
     return (dispatch) => {
         axios.put('http://localhost:8080/userBook', userBook)
         .then(response => {
-            console.log("*****************in updateToUserLibrary*************");
+          //  console.log("*****************in updateToUserLibrary*************");
             dispatch({
                 type: UPDATE_TO_USERLIBRARY,
                 payload: response.data,
