@@ -14,7 +14,7 @@ import {
   getUserLibrary,
 } from "../../redux/userLibrary/userLibraryActions";
 import { getBooksByCategory } from "../../redux/books/booksActions";
-import SearchBookAutoComplete from "../SearchBookAutoComplete";
+
 
 function Explorer() {
   const userLibrary = useSelector((state) => state.userLibrary.userLibrary);
@@ -40,7 +40,7 @@ function Explorer() {
   return (
     <>
       <PaperComponent paperProps={paperProps} />
-
+      
       <SearchBookAutoComplete bookArray={bookArray} />
 
       <Grid container spacing={4}>

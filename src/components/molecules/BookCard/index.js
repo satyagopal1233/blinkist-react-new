@@ -55,11 +55,10 @@ function BookCard(props) {
       </CardActionArea>
       <CardActions>
       {buttonText.length > 0 && (
-      <ButtonComponent
-          onClick={() => changeStatusOfBook(props.onchangestate, props.book)}
+      <Button variant="contained"   color="primary"      onClick={() => changeStatusOfBook(props.onchangestate, props.book)}
         >
           {buttonText}
-        </ButtonComponent>
+        </Button>
       )}
       </CardActions>
     </Card>
