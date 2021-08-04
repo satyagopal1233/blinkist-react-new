@@ -15,7 +15,7 @@ const userLibraryReducer = (state = initialState, action) => {
             return {...state, userLibrary};
         case UPDATE_TO_USERLIBRARY:
                 const index = action.index;
-                console.log("index=",index);
+               // console.log("index=",index);
                 return { 
                     ...state, 
                     userLibrary: [
