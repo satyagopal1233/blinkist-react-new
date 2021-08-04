@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
+import ThemeProvider from "@material-ui/styles/ThemeProvider";
 import baseTheme from "./themes";
 import { Provider } from "react-redux";
 
