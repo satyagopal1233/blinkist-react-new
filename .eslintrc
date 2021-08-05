@@ -1,5 +1,5 @@
 {
     //
-  //"extends": "eslint-config-zemoso"
+  "extends": "eslint-config-zemoso"
     //
 }

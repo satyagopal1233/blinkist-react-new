@@ -1,5 +1,4 @@
 import { shallow} from "enzyme";
-import { shallow} from "enzyme";
 import { Button } from "@material-ui/core";
 import BookCard from ".";
 
