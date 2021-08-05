@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router";
+import React, { useEffect} from "react";
 import Grid from "@material-ui/core/Grid";
 import BookCard from "../../molecules/BookCard";
-import axios from "axios";
 import PaperComponent from "../../atoms/PaperComponent";
-import TypographyComponent from "../../atoms/Typography";
-
-import MyLibrary from "../../organisms/MyLibrary";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   addToUserLibrary,

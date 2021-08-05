@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router";
+import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
-import LinK, { Divider, Link, makeStyles } from "@material-ui/core";
+import  {  Link, makeStyles } from "@material-ui/core";
 import TypographyComponent from "../../atoms/Typography";
 import PaperComponent from "../../atoms/PaperComponent";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateToUserLibrary } from "../../redux/userLibrary/userLibraryActions";
 import BookCard from "../../molecules/BookCard";
 const useStyles = makeStyles((theme) => ({

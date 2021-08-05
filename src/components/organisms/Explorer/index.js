@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 
 import Grid from "@material-ui/core/Grid";
 
 import PaperComponent from "../../atoms/PaperComponent";
 
-import { connect, useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector } from "react-redux";
 
 import {
   addToUserLibrary,

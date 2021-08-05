@@ -1,7 +1,7 @@
-import { Button, Typography } from "@material-ui/core";
-import { shallow, render ,mount} from "enzyme";
+import { Button } from "@material-ui/core";
+import { shallow} from "enzyme";
 import BookCard from ".";
-import ButtonComponent from "../../atoms/Button";
+
 
 describe('<BookCard /> rendering', () => {
     const book={
@@ -14,7 +14,6 @@ describe('<BookCard /> rendering', () => {
      
     it('should render a <ButtonComponent /> on displaying BookCard', () => {
         const wrapper = shallow(<BookCard book={book} buttonText="CRR"/>);
-        //console.log(wrapper.debug());
         expect(wrapper.find(Button)).toHaveLength(1);
     });
   

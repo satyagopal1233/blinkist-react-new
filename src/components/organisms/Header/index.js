@@ -1,16 +1,8 @@
-import {
-  Grid,
-  Icon,
-  IconButton,
+import {  
   makeStyles,
   Typography,
-  Button,
-  Paper,
   Avatar,
-  Container,
-  Toolbar,
-  StylesProvider
-  
+  Toolbar  
 } from "@material-ui/core";
 import { Link} from "react-router-dom";
 import React, { useState } from 'react';
