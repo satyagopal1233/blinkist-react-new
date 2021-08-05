@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 function PaperComponent(props){
-    const{title,description} = props;
     const classes = useStyles();
     return(   
       

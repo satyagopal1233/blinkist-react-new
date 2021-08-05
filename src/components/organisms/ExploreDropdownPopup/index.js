@@ -1,10 +1,10 @@
-import { Grid ,Paper,Link, Container, Typography} from '@material-ui/core';
+import { Grid ,Link} from '@material-ui/core';
 import React from 'react';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import PublicIcon from '@material-ui/icons/Public';
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
-import { Dialog, DialogContent, DialogTitle, makeStyles } from "@material-ui/core";
+import { Dialog, DialogContent,  makeStyles } from "@material-ui/core";
 
 const useStyles= makeStyles(theme => ({
     dialogWrapper:{

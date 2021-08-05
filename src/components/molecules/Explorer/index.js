@@ -40,15 +40,12 @@ function Explorer() {
 
       <Grid container spacing={4}>
         {bookArray.map((book) => {
-          // console.log(userLibrary);
-          console.log("**********************");
-          console.log("userlibrary=", userLibrary);
-          console.log(book);
+         
+         
           const btnTextFlag = userLibrary.some(
             (userBook) => userBook.book.name === book.name
           );
-          console.log(btnTextFlag);
-          console.log("**********************");
+        
           return (
             <BookCard
               key={book.name}

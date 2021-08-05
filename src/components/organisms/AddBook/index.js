@@ -16,17 +16,15 @@ function AddBook(){
 
     });
     const paperStyle = { padding: '30px 20px', width: 300, margin: "20px auto" };
-    const headerStyle = { margin: 0 };
     const avatarStyle = { backgroundColor: '#1bbd7e' };
-    const marginTop = { marginTop: 5 };
     const handleInput= (e) =>{
         const newData = {...data};
         newData[e.target.id]=e.target.value;
         setData(newData);
-        //console.log(newData);
+       
     };
     const addBook = () =>{
-     // console.log("before submitting data",data);
+    
       dispatch(addToBooks(data));
       alert("book added");
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, configure ,Adapter} from 'enzyme';
+import { shallow, configure } from 'enzyme';
 import { Route } from 'react-router-dom';
 import ReactSixteenAdapter from 'enzyme-adapter-react-16';
 configure({ adapter: new ReactSixteenAdapter() })

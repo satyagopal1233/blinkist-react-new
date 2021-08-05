@@ -19,9 +19,7 @@ function SearchBookAutoComplete(props) {
 
     setBookMatch(matches);
   };
-  const displayBookCard = (book)=>{
-    console.log(book.name);
-  };
+
  
   
   return (
